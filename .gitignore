@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+
+# CMake & IDE
+.vscode/
+.vs/
+.idea/
+cmake-build-debug/
+[Bb]uild/
