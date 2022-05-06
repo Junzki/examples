@@ -47,10 +47,10 @@ namespace read_write {
         }
 
         ~shm_read_write() {
-            if (nullptr != file_)
-                fclose(file_);
+            if (-1 != fd_)
+                close(fd_);
 
-            delete buf_;
+            delete[] buf_;
         }
 
         auto read_to_string() const {
@@ -59,7 +59,7 @@ namespace read_write {
             ssize_t n_read = -1;
             while (true) {
                 n_read = read(fd_, buf_, BUFSIZ);
-                if (n_read == 0)
+                if (0 == n_read)
                     break;
 
                 ss.write(buf_, n_read);
@@ -75,8 +75,7 @@ namespace read_write {
         }
 
     private:
-        FILE* file_ = nullptr;
-        int fd_;
+        int fd_ = -1;
         char* buf_;
     };
 
