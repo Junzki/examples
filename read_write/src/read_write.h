@@ -58,7 +58,7 @@ namespace read_write {
 
             ssize_t n_read = -1;
             while (true) {
-                n_read = read(fd_, buf_, BUFSIZ);  // Will block until something read.
+                n_read = read(fd_, buf_, BUFSIZ);
                 if (n_read == 0)
                     break;
 
