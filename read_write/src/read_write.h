@@ -7,7 +7,6 @@
 #include <iostream>
 #include <cstdio>
 #include <cerrno>
-#include <io.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <cstring>
@@ -15,6 +14,7 @@
 
 #if defined(WIN32)
 #include <Windows.h>
+#include <io.h>
 #include <synchapi.h>
 
 #define ssize_t int
